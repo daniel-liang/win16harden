@@ -1,0 +1,24 @@
+---
+- name: Windows Remote Desktop Configured to Always Prompt for Password
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+    name: "fPromptForPassword"
+    data: "1"
+    type: dword
+  tags:
+    - level-1
+    - section-18
+    - "18.9.58.3.9.1"
+    - scored
+
+- name: Strong Encryption for Windows Remote Desktop Required
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+    name: "MinEncryptionLevel"
+    data: "3"
+    type: dword
+  tags:
+    - level-1
+    - section-18
+    - "18.9.58.3.9.3"
+    - scored

@@ -1,0 +1,311 @@
+---
+- name: Windows Firewall Domain Firewall state is On
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
+    name: EnableFirewall
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.1"
+    - scored
+
+- name: Windows Firewall Domain Inbound connections is Blocked
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
+    name: DefaultInboundAction
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.2"
+    - scored
+
+- name: Windows Firewall Domain Outbound connections is Allowed
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
+    name: DefaultOutboundAction
+    type: dword
+    data: 0
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.3"
+    - scored
+
+- name: Ensure Windows Firewall Domain Settings Display a notification is set to No
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
+    name: DisableNotifications
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.4"
+    - scored
+
+- name: Ensure Windows Firewall Domain Logging Name is set
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+    name: LogFilePath
+    data: '%SYSTEMROOT%\System32\logfiles\firewall\domainfw.log'
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.5"
+    - scored
+
+- name: Ensure Windows Firewall Domain Logging Size limit (KB) is set to 16,384 KB or greater
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+    name: LogFileSize
+    type: dword
+    data: 16384
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.6"
+    - scored
+
+- name: Ensure Windows Firewall Domain Logging Log dropped packets is set to Yes
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+    name: LogDroppedPackets
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.7"
+    - scored
+
+- name: Ensure Windows Firewall Domain Logging Log successful connections is set to Yes
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile\Logging
+    name: LogSuccessfulConnections
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.1.8"
+    - scored
+
+- name: Windows Firewall Private Firewall state is On
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+    name: EnableFirewall
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.1"
+    - scored
+
+- name: Windows Firewall Private Inbound connections is Blocked
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+    name: DefaultInboundAction
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.2"
+    - scored
+
+- name: Windows Firewall Private Outbound connections is Allowed
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+    name: DefaultOutboundAction
+    type: dword
+    data: 0
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.3"
+    - scored
+
+- name: Ensure Windows Firewall Private Settings Display a notification is set to No
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile
+    name: DisableNotifications
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.4"
+    - scored
+
+- name: Ensure Windows Firewall Private Logging Name is set
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging
+    name: LogFilePath
+    data: '%SYSTEMROOT%\System32\logfiles\firewall\privatefw.log'
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.5"
+    - scored
+
+- name: Ensure Windows Firewall Private Logging Size limit (KB) is set to 16,384 KB or greater
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging
+    name: LogFileSize
+    type: dword
+    data: 16384
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.6"
+    - scored
+
+- name: Ensure Windows Firewall Private Logging Log dropped packets is set to Yes
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging
+    name: LogDroppedPackets
+    type: dword
+    data: 1
+  tags:
+    - level-1
+    - section-9
+    - "9.2.7"
+    - scored
+
+- name: Ensure Windows Firewall Private Logging Log successful connections is set to Yes
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PrivateProfile\Logging
+    name: LogSuccessfulConnections
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.2.8"
+    - scored
+
+- name: Ensure Windows Firewall Public Settings Firewall state is On
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+    name: EnableFirewall
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.1"
+    - scored
+
+- name: Ensure Windows Firewall Public Inbound connections is Blocked
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+    name: DefaultInboundAction
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.2"
+    - scored
+
+- name: Ensure Windows Firewall Public Outbound connections is Allowed
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+    name: DefaultOutboundAction
+    type: dword
+    data: 0
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.3"
+    - scored
+
+- name: Ensure Windows Firewall Public Settings Display a notification is set to No
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+    name: DisableNotifications
+    type: dword
+    data: 0
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.4"
+    - scored
+
+# These sections removed as it is causing RDP connection issues
+
+# - name: Ensure Windows Firewall Public Settings Apply local firewall rules is set to No
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+#     name: AllowLocalPolicyMerge
+#     type: dword
+#     data: 0
+#   tags:
+#     - Level-1
+#     - section-9
+#     - "9.3.5"
+#     - scored
+
+# - name: Ensure Windows Firewall Public Settings Apply local connection security rules is set to No
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile
+#     name: AllowLocalIPsecPolicyMerge
+#     type: dword
+#     data: 0
+#   tags:
+#     - Level-1
+#     - section-9
+#     - "9.3.6"
+#     - scored
+
+- name: Ensure Windows Firewall Public Logging Name is set
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging
+    name: LogFilePath
+    data: '%SYSTEMROOT%\System32\logfiles\firewall\publicfw.log'
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.7"
+    - scored
+
+- name: Ensure Windows Firewall Public Logging Size limit (KB) is set to 16,384 KB or greater
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging
+    name: LogFileSize
+    type: dword
+    data: 16384
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.8"
+    - scored
+
+- name: Ensure Windows Firewall Public Logging Log dropped packets is set to Yes
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging
+    name: LogDroppedPackets
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.9"
+    - scored
+
+- name: Ensure Windows Firewall Public Logging Log successful connections is set to Yes
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile\Logging
+    name: LogSuccessfulConnections
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-9
+    - "9.3.10"
+    - scored

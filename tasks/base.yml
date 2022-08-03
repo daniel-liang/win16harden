@@ -1,0 +1,16 @@
+# Playbook example
+---
+- name: Base testing
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Set Enforce password history to 24 or more passwords | cis enforce-password-history 1.1.1
+      win_security_policy:
+        section: System Access
+        key: PasswordHistorySize
+        value: 24
+      tags:
+        - level-1
+        - section-1
+        - "1.1.1.1"
+        - scored

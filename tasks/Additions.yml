@@ -1,0 +1,375 @@
+---
+- name: Access Credential Manager as a trusted caller is set to No One
+  win_user_right:
+    name: SeTrustedCredManAccessPrivilege
+    users: []
+  tags:
+    - level-1
+    - section-2
+    - "2.2.1"
+    - scored
+
+- name: Access this computer from the network is set to Administrators and Authenticated Users
+  win_user_right:
+    name: SeNetworkLogonRight
+    users:
+      - Administrators
+      - Authenticated Users
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.3"
+    - scored
+
+- name: Act as part of the operating system is set to No One
+  win_user_right:
+    name: SeTcbPrivilege
+    users: []
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.4"
+    - scored
+
+- name: Allow log on locally is set to Administrators
+  win_user_right:
+    name: SeInteractiveLogonRight
+    users:
+      - Administrators
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.7"
+    - scored
+
+- name: Back up files and directories is set to Administrators
+  win_user_right:
+    name: SeBackupPrivilege
+    users:
+      - Administrators
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.10"
+    - scored
+
+- name: Change the time zone is set to Administrators, LOCAL SERVICE
+  win_user_right:
+    name: SeTimeZonePrivilege
+    users:
+      - Administrators
+      - LOCAL SERVICE
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.12"
+    - scored
+
+- name: Deny log on as a batch job to include Guests
+  win_user_right:
+    name: SeDenyBatchLogonRight
+    users:
+      - Guests
+    action: add
+  tags:
+    - level-1
+    - section-2
+    - "2.2.22"
+    - scored
+
+- name: Deny log on as a service to include Guests
+  win_user_right:
+    name: SeDenyServiceLogonRight
+    users:
+      - Guests
+    action: add
+  tags:
+    - level-1
+    - section-2
+    - "2.2.23"
+    - scored
+
+- name: Deny log on locally to include Guests
+  win_user_right:
+    name: SeDenyInteractiveLogonRight
+    users:
+      - Guests
+    action: add
+  tags:
+    - level-1
+    - section-2
+    - "2.2.24"
+    - scored
+
+- name: Restore files and directories is set to Administrators
+  win_user_right:
+    name: SeRestorePrivilege
+    users:
+      - Administrators
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.45"
+    - scored
+
+- name: Shut down the system is set to Administrators
+  win_user_right:
+    name: SeShutdownPrivilege
+    users:
+      - Administrators
+    action: set
+  tags:
+    - level-1
+    - section-2
+    - "2.2.46"
+    - scored
+
+- name: Change the guest account name
+# win_security_policy:
+#   section: System Access
+#   key: NewGuestName
+#   value: "no-use-guest"
+  win_shell: Rename-LocalUser -Name "Guest" -NewName "no-use-guest"
+  tags:
+    - level-1
+    - section-2
+    - "2.3.1.6"
+    - scored
+
+- name: Audit Force audit policy subcategory settings is Enabled
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    name: SCENoApplyLegacyAuditPolicy
+    type: dword
+    data: 1
+  tags:
+    - level-1
+    - section-2
+    - "2.3.2.1"
+    - scored
+
+- name: Audit Shut down system immediately if unable to log security audits is Disabled
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    name: CrashOnAuditFail
+    type: dword
+    data: 0
+  tags:
+    - level-1
+    - section-2
+    - "2.3.2.2"
+    - scored
+
+- name: Devices Allowed to format and eject removable media is set to Administrators
+  win_regedit:
+    path: 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon'
+    name: allocatedasd
+    datatype: string
+    data: '0'
+  tags:
+    - level-1
+    - section-2
+    - "2.3.4.1"
+    - scored
+
+- name: Microsoft network server Digitally sign communications is Enabled
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Services\LanManServer\Parameters
+    name: EnableSecuritySignature
+    type: dword
+    data: 1
+  tags:
+    - level-1
+    - section-2
+    - "2.3.9.3"
+    - scored
+
+- name: Allow anonymous SID/Name translation is Disabled
+  win_security_policy:
+    section: System Access
+    key: LSAAnonymousNameLookup
+    value: 0
+  tags:
+    - level-1
+    - section-2
+    - "2.3.10.1"
+    - scored
+
+- name: Restrict clients allowed to make remote calls to SAM is set to Administrators Remote Access Allow
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    name: RestrictRemoteSAM
+    type: string
+    data: 'O:BAG:BAD:(A;;RC;;;BA)'
+  tags:
+    - level-1
+    - section-2
+    - "2.3.10.11"
+    - scored
+
+- name: Allow LocalSystem NULL session fallback is Disabled
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
+    name: AllowNullSessionFallback
+    type: dword
+    data: 0
+  tags:
+    - level-1
+    - section-2
+    - "2.3.11.2"
+    - scored
+
+- name: Allow PKU2U authentication requests to this computer to use online identities is Disabled
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\pku2u
+    name: AllowOnlineID
+    type: dword
+    data: 0
+  tags:
+    - level-1
+    - section-2
+    - "2.3.11.3"
+    - scored
+
+- name: Kerberos encryption types must be configured to prevent the use of DES encryption suites.
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters
+    name: SupportedEncryptionTypes
+    type: dword
+    data: 2147483644
+  tags:
+    - level-1
+    - section-2
+    - "2.3.11.4"
+    - scored
+
+- name: Force logoff when logon hours expire is Enabled
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters
+    name: EnableForcedLogoff
+    type: dword
+    data: 1
+  tags:
+    - level-1
+    - section-2
+    - "2.3.11.6"
+    - scored
+
+- name: The shutdown option must not be available from the logon dialog box
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: ShutdownWithoutLogon
+    type: dword
+    data: 0
+  tags:
+    - level-1
+    - section-2
+    - "2.3.13.1"
+    - scored
+
+- name: The system will be configured to audit Credential Validation failures
+  win_audit_policy_system:
+    subcategory: Credential Validation
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.1.1"
+      - scored
+
+- name: The system will be configured to audit Application Group Management success and failures
+  win_audit_policy_system:
+    subcategory: Application Group Management
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.2.1"
+      - scored
+
+- name: The system will be configured to audit Computer Account Management failures
+  win_audit_policy_system:
+    subcategory: Computer Account Management
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.2.2"
+      - scored
+
+- name: The system will be configured to audit Other Account Management Events failures
+  win_audit_policy_system:
+    subcategory: Other Account Management Events
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.2.4"
+      - scored
+
+# The version of Ansible win_audit_policy_system module does not appear to support PNP Activity subcategory
+#- name: The system will be configured to audit PNP Activity success
+#  win_audit_policy_system:
+#    subcategory: PNP Activity
+#    audit_type: success
+#    tags:
+#    - level-1
+#    - section-17
+#    - "17.3.1"
+#    - scored
+
+- name: The system will be configured to audit Removable Storage success and failure
+  win_audit_policy_system:
+    subcategory: Removable Storage
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.6.2"
+      - scored
+
+- name: The system will be configured to audit Authorization Policy Change success
+  win_audit_policy_system:
+    subcategory: Authorization Policy Change
+    audit_type: success
+    tags:
+      - level-1
+      - section-17
+      - "17.7.3"
+      - scored
+
+- name: The system will be configured to audit Sensitive Privilege Use success and failure
+  win_audit_policy_system:
+    subcategory: Sensitive Privilege Use
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.8.1"
+      - scored
+
+- name: The system will be configured to audit IPsec Driver success and failure
+  win_audit_policy_system:
+    subcategory: IPsec Driver
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.9.1"
+      - scored
+
+- name: The system will be configured to audit Security System Extension success and failure
+  win_audit_policy_system:
+    subcategory: Security System Extension
+    audit_type: success, failure
+    tags:
+      - level-1
+      - section-17
+      - "17.9.4"
+      - scored

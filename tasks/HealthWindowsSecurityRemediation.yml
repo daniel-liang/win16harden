@@ -1,0 +1,520 @@
+---
+- name: Require trusted path for credential entry
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\CredUI
+    name: EnableSecureCredentialPrompting
+    type: dword
+    data: 0
+  tags:
+    - "5"
+
+# - name: User Account Control - Admin Approval Mode for the Built-in Administrator account
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+#     name: FilterAdministratorToken
+#     type: dword
+#     data: 1
+#   tags:
+#
+
+- name: User Account Control - Behavior of the elevation prompt for administrators in Admin Approval Mode"
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: ConsentPromptBehaviorAdmin
+    type: dword
+    data: 2
+  tags:
+    - Level-1
+    - Section-2
+    - "2.3.17.3"
+    - Scored
+
+- name: User Account Control - Behavior of the elevation prompt for Standard User"
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: ConsentPromptBehaviorUser
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - Section-2
+    - "2.3.17.4"
+    - Scored
+
+- name: Specify the maximum log file size (KB) (Application)
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Application
+    name: MaxSize
+    type: dword
+    data: 65536
+  tags:
+    - Level-1
+    - Section-18
+    - "18.9.26.1.2"
+    - Scored
+
+- name: Specify the maximum log file size (KB) (Security)
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\Security
+    name: MaxSize
+    type: dword
+    data: 2097152
+  tags:
+    - Level-1
+    - Section-18
+    - "18.9.26.2.2"
+    - Scored
+
+- name: Specify the maximum log file size (KB) (System)
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\EventLog\System
+    name: MaxSize
+    type: dword
+    data: 65536
+  tags:
+    - Level-1
+    - Section - 18
+    - "18.9.26.4.2"
+    - Scored
+
+- name: Turn off Autoplay of all Kinds
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+    name: NoDriveTypeAutoRun
+    type: binary
+    data: 0xFF
+  tags:
+    - Level-1
+    - Section-18
+    - "18.9.8.3"
+    - Scored
+
+- name: Prevent the computer from joining a homegroup
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\HomeGroup
+    name: DisableHomeGroup
+    type: dword
+    data: 1
+  tags:
+    - "66"
+
+- name: Network security - LAN Manager authentication level
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa
+    name: LmCompatibilityLevel
+    type: dword
+    data: 5
+  tags:
+    - Level-1
+    - Section-2
+    - "2.3.11.7"
+    - Scored
+
+## Duplicate found in Access.yml
+#- name: Network security - Minimum session security for NTLM SSP based (including secure RPC) clients
+#  win_regedit:
+#    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
+#    name: NtlmMinClientSec
+#    type: dword
+#    data: 537395200
+#  tags:
+#    - Level-1
+#    - Section-2
+#    - "2.3.11.9"
+#    - Scored
+
+## Duplicate found in Access.yml
+#- name: Network security - Minimum session security for NTLM SSP based (including secure RPC) servers
+#  win_regedit:
+#    path: HKLM:\SYSTEM\CurrentControlSet\Control\Lsa\MSV1_0
+#    name: NtlmMinServerSec
+#    type: dword
+#    data: 537395200
+#  tags:
+#    - Level-1
+#    - Section-2
+#    - "2.3.11.10"
+#    - Scored
+
+
+- name: Turn on PowerShell Script Block Logging
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging
+    name: EnableScriptBlockLogging
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - Section-18
+    - "18.9.95.1"
+    - Scored
+
+## Duplicate found in AdministrativeTemplates.yml
+#- name: Do not allow passwords to be saved (Terminal Services)
+#  win_regedit:
+#    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+#    name: DisablePasswordSaving
+#    type: dword
+#    data: 1
+#  tags:
+#    - Level-1
+#    - section-18
+#    - "18.9.58.2.2"
+#    - scored
+
+
+- name: Safe Mode Block Non-Admins
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: SafeModeBlockNonAdmins
+    type: dword
+    data: 1
+  tags:
+    - "80"
+
+## Duplicate found in AdministrativeTemplateUser.yml
+#- name: Turn off toast notification on the lock Screen
+#  win_regedit:
+#    path: HKCU:\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\PushNotifications
+#    name: NoToastApplicationNotificationOnLockScreen
+#    type: dword
+#    data: 1
+#  tags:
+#    - Level-1
+#    - Section-19
+#    - "19.5.1.1"
+#    - Scored
+
+- name: Disable WPAD
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Services\WinHttpAutoProxySvc
+    name: Start
+    type: dword
+    data: 4
+  tags:
+    - "104"
+
+## Duplicate found in AdministrativeTemplates.yml
+#- name: Disallow Digest Authentication - WinRm
+#  win_regedit:
+#    path: HKLM:\Software\Policies\Microsoft\Windows\WinRM\Client
+#    name: AllowDigest
+#    type: dword
+#    data: 0
+#  tags:
+#    - Level-1
+#    - Section-18
+#    - "18.9.97.1.3"
+#    - Scored
+
+- name: Disallow Basic Authentication - WinRm Client
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\WinRM\Client
+    name: AllowBasic
+    type: dword
+    data: 0
+  tags:
+    - Level-1
+    - Section-18
+    - "18.9.97.1.1"
+    - Scored
+
+# Was tagged incorrectly
+- name: Disallow Basic Authentication - WinRm Service
+  win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\WinRM\Service
+    name: AllowBasic
+    type: dword
+    data: 0
+  tags:
+    - Level-1
+    - Section-18
+    - "18.9.97.2.1"
+    - Scored
+
+## Duplicate found in AdministrativeTemplates.yml
+#- name: Disallow WinRM from storing RunAs credentials
+#  win_regedit:
+#    path: HKLM:\Software\Policies\Microsoft\Windows\WinRM\Service
+#    name: DisableRunAs
+#    type: dword
+#    data: 1
+#  tags:
+#    - Level-1
+#    - Section-18
+#    - "18.9.97.2.4"
+#    - Scored
+
+- name: Prevent users from sharing files within their profile
+  win_regedit:
+    path: HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+    name: NoInplaceSharing
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - Section-19
+    - "19.7.26.1"
+    - Scored
+
+- name: Ensure DES Cipher Suites is disabled (Scored)
+  win_regedit:
+    path: 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\DES 56/56'
+    name: 'Enabled'
+    type: dword
+    data: 0
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.8"
+    - Scored
+
+- name: Ensure RC4 Cipher Suites is disabled (Scored)
+  win_regedit:
+    path: 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 40/128'
+    name: 'Enabled'
+    type: dword
+    data: 0
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.9"
+    - Scored
+
+
+- name: Ensure RC4 Cipher Suites is disabled (Scored)
+  win_regedit:
+    path: 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128'
+    name: 'Enabled'
+    type: dword
+    data: 0
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.9"
+    - Scored
+
+- name: Ensure RC4 Cipher Suites is disabled (Scored)
+  win_regedit:
+    path: 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 64/128'
+    name: 'Enabled'
+    type: dword
+    data: 0
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.9"
+    - Scored
+
+- name: Ensure RC4 Cipher Suites is disabled (Scored)
+  win_regedit:
+    path: 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 128/128'
+    name: 'Enabled'
+    type: dword
+    data: 0
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.9"
+    - Scored
+
+- name: Ensure Triple DES Cipher Suite is Disabled (Scored)
+  win_regedit:
+    path: 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\Triple DES 168/168'
+    name: 'Enabled'
+    type: dword
+    data: 0
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.10"
+    - Scored
+
+- name: Ensure TLS Cipher Suite ordering is configured
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Cryptography\Configuration\Local\SSL\00010002
+    name: Enabled
+    type: multistring
+    data: ['TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384',
+           'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256',
+           'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384',
+           'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256',
+           'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384',
+           'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256',
+           'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384',
+           'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256']
+  tags:
+    - CIS Benchmark IIS 10 - Level -1
+    - Section-7
+    - "7.13"
+    - Scored
+
+#### Secedit Remediation ####
+
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Disable_anonymous_SID_Name_translation
+# INSPEC ref: 2_localpolicies.rb - 2.3.10.1_L1_Ensure_Network_access_Allow_anonymous_SIDName_translation_is_set_to_Disabled
+- name: Network access - Deny anonymous SID/Name translation
+  win_security_policy:
+    section: System Access
+    key: LSAAnonymousNameLookup
+    value: 0
+  tags:
+    - "2.3.10.10"
+
+# INSPEC ref: 2_localpolicies.rb - 2.2.30_L1_Configure_Manage_auditing_and_security_log
+- name: Privelege Rights - Configure 'Manage auditing and security log'
+  win_user_right:
+    name: SeSecurityPrivilege
+    users: Administrators
+    action: set
+  tags:
+    - "2.2.30"
+
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Guest_account_on_the_local_computer_is_set_to_False
+- name: Accounts - Disable guest Account
+  win_security_policy:
+    section: System Access
+    key: EnableGuestAccount
+    value: 0
+  tags:
+    - "2.3.1.3"
+
+
+#### Auditpol Remediation ####
+
+# Audit Security Group Management (default: Success)
+# # INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.2.5_L1_Ensure_Audit_Security_Group_Management_is_set_to_Success_and_Failure
+- name: Enable all auditing types for Security Group Management
+  win_audit_policy_system:
+    subcategory: Security Group Management
+    audit_type: success, failure
+
+# Audit User Account Management (default: Success)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.2.6_L1_Ensure_Audit_User_Account_Management_is_set_to_Success_and_Failure
+- name: Enable all auditing types for User Account Management
+  win_audit_policy_system:
+    subcategory: User Account Management
+    audit_type: success, failure
+
+# Audit Process Creation (default: No Auditing)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.3.2_L1_Ensure_Audit_Process_Creation_is_set_to_Success
+- name: Enable auditing for successful Process Creation
+  win_audit_policy_system:
+    subcategory: Process Creation
+    audit_type: success
+
+# Audit Process Termination (default: No Auditing)
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Audit_Process_Termination_is_set_to_Success
+- name: Enable auditing for successful Process Termination
+  win_audit_policy_system:
+    subcategory: Process Termination
+    audit_type: success
+
+# Audit Account Lockout (default: Success)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.5.1_L1_Ensure_Audit_Account_Lockout_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Account Lockout
+  win_audit_policy_system:
+    subcategory: Account Lockout
+    audit_type: success, failure
+
+# Audit Group Membership (default: none)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.5.2_L1_Ensure_Audit_Group_Membership_is_set_to_Success
+- name: Modify auditing policies for Group Membership
+  win_audit_policy_system:
+    subcategory: Group Membership
+    audit_type: success
+
+# Audit Logoff (default: Success)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.5.3_L1_Ensure_Audit_Logoff_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Logoff
+  win_audit_policy_system:
+    subcategory: Logoff
+    audit_type: success, failure
+
+# Audit Logon (default: Success and Failure)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.5.4_L1_Ensure_Audit_Logon_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Logon
+  win_audit_policy_system:
+    subcategory: Logon
+    audit_type: success, failure
+
+# Audit Other Logon/Logoff Events (default: none)
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.5.5_L1_Ensure_Audit_Other_LogonLogoff_Events_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Other Logon/Logoff Events
+  win_audit_policy_system:
+    subcategory: Other Logon/Logoff Events
+    audit_type: success, failure
+
+# Audit Special Logon
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.5.6_L1_Ensure_Audit_Special_Logon_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Special Logon
+  win_audit_policy_system:
+    subcategory: Special Logon
+    audit_type: success, failure
+
+# Audit File Share
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Audit_File_Share_is_set_to_Success_and_Failure
+- name: Modify auditing policies for File Share
+  win_audit_policy_system:
+    subcategory: File Share
+    audit_type: success, failure
+
+# Audit File System
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Audit_File_System_is_set_to_Success_and_Failure
+- name: Modify auditing policies for File System
+  win_audit_policy_system:
+    subcategory: File System
+    audit_type: success, failure
+
+# Audit Kernel Object
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Audit_Kernel_Object_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Kernel Object
+  win_audit_policy_system:
+    subcategory: Kernel Object
+    audit_type: success, failure
+
+# Audit Other Object Access Events
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.6.1_L1_Ensure_Audit_Other_Object_Access_Events_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Other Object Access Events
+  win_audit_policy_system:
+    subcategory: Other Object Access Events
+    audit_type: success, failure
+
+# Audit Registry
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Audit_Registry_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Registry
+  win_audit_policy_system:
+    subcategory: Registry
+    audit_type: success, failure
+
+# Audit Audit Policy Change
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.7.1_L1_Ensure_Audit_Audit_Policy_Change_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Audit Policy Change
+  win_audit_policy_system:
+    subcategory: Audit Policy Change
+    audit_type: success, failure
+
+# Audit Other Policy Change Events
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_Audit_Other_Policy_Change_Events_is_set_to_Success_and_Failure
+- name: Modify auditing policies for Other Policy Change Events
+  win_audit_policy_system:
+    subcategory: Other Policy Change Events
+    audit_type: success, failure
+
+# Audit System Integrity
+# INSPEC ref: 17_AdvancedAuditPolicy.rb - 17.9.5_L1_Ensure_Audit_System_Integrity_is_set_to_Success_and_Failure
+- name: Modify auditing policies for System Integrity
+  win_audit_policy_system:
+    subcategory: System Integrity
+    audit_type: success, failure
+
+
+#### PowerShell Remediation ####
+
+# INSPEC ref: HealthWindowsSecurityRemediation.rb - Ensure_PowshellV2_is_disabled
+- name: Disable Powersehll v2.0 windows feature
+  win_feature:
+    name: PowerShell-V2
+    state: absent
+  tags:
+    - Content Security Recommendations

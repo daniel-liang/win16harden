@@ -1,0 +1,24 @@
+---
+- name: Ensure 'User Account Control Admin Approval Mode for the Built-in Administrator account' is set to 'Enabled'
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: FilterAdministratorToken
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-2
+    - "2.3.17.1"
+    - scored
+
+- name: Ensure 'User Account Control Detect application installations and prompt for elevation' is set to 'Enabled'
+  win_regedit:
+    path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    name: EnableInstallerDetection
+    type: dword
+    data: 1
+  tags:
+    - Level-1
+    - section-2
+    - "2.3.17.5"
+    - scored

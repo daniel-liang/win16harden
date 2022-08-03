@@ -1,0 +1,45 @@
+---
+
+- name: Access
+  import_tasks: Access.yml
+  tags: Access
+
+- name: AdministrativeTemplateComputer
+  import_tasks: AdministrativeTemplateComputer.yml
+  tags: Administrative Template (Computer)
+
+- name: AdministrativeTemplateUser
+  import_tasks: AdministrativeTemplateUser.yml
+  tags: Administrative Template (User)
+
+- name: Exclusions
+  import_tasks: Exclusions.yml
+  tags: Security Exclusions
+
+- name: Misc
+  import_tasks: Misc.yml
+  tags: Miscellaneous
+
+- name: Rdp
+  import_tasks: Rdp.yml
+  tags: Remote Desktop Config
+
+- name: PasswordPolicy
+  import_tasks: PasswordPolicy.yml
+  tags: Password Policy
+
+- name: WindowsFirewall
+  import_tasks: WindowsFirewall.yml
+  tags: Configure Windows Firewall
+
+- name: AdministrativeTemplates
+  import_tasks: AdministrativeTemplates.yml
+  tags: configure Admin templates
+
+- name: HealthWindowsSecurityRemediation
+  import_tasks: HealthWindowsSecurityRemediation.yml
+  tags: Add Pentest Remediations
+
+- name: Additions
+  import_tasks: Additions.yml
+  tags: Additions 2020

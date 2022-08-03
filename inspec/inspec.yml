@@ -1,0 +1,822 @@
+# encoding: utf-8
+
+name: windows-baseline
+title: DevSec Windows Security Baseline
+maintainer: eHealth CST team
+summary: Baseline for best-practice Windows OS hardening
+version: 1.1.2
+supports:
+  - os-family: windows
+attributes:
+  - name: win2016cis_rule_1_1_1
+    value: 'true'
+  - name: win2016cis_rule_1_1_2
+    value: 'true'
+  - name: win2016cis_rule_1_1_3
+    value: 'true'
+  - name: win2016cis_rule_1_1_4
+    value: 'true'
+  - name: win2016cis_rule_1_1_5
+    value: 'true'
+  - name: win2016cis_rule_1_1_6
+    value: 'true'
+  - name: win2016cis_rule_1_2_1
+    value: 'true'
+  - name: win2016cis_rule_1_2_2
+    value: 'true'
+  - name: win2016cis_rule_1_2_3
+    value: 'true'
+  - name: win2016cis_rule_2_2_1
+    value: 'true'
+  - name: win2016cis_rule_2_2_2
+    value: 'DC only'
+  - name: win2016cis_rule_2_2_3
+    value: 'true'
+  - name: win2016cis_rule_2_2_4
+    value: 'true'
+  - name: win2016cis_rule_2_2_5
+    value: 'DC only'
+  - name: win2016cis_rule_2_2_6
+    value: 'true'
+  - name: win2016cis_rule_2_2_7
+    value: 'true'
+  - name: win2016cis_rule_2_2_8
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_9
+    value: 'true'
+  - name: win2016cis_rule_2_2_10
+    value: 'true'
+  - name: win2016cis_rule_2_2_11
+    value: 'true'
+  - name: win2016cis_rule_2_2_12
+    value: 'true'
+  - name: win2016cis_rule_2_2_13
+    value: 'true'
+  - name: win2016cis_rule_2_2_14
+    value: 'true'
+  - name: win2016cis_rule_2_2_15
+    value: 'true'
+  - name: win2016cis_rule_2_2_16
+    value: 'true'
+  - name: win2016cis_rule_2_2_17
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_18
+    value: 'true'
+  - name: win2016cis_rule_2_2_19
+    value: 'true'
+  - name: win2016cis_rule_2_2_20
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_21
+    value: 'not recommended for non domain joined servers'
+  - name: win2016cis_rule_2_2_22
+    value: 'true'
+  - name: win2016cis_rule_2_2_23
+    value: 'true'
+  - name: win2016cis_rule_2_2_24
+    value: 'true'
+  - name: win2016cis_rule_2_2_25
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_26
+    value: 'cant remotely manage non domain joined servers'
+  - name: win2016cis_rule_2_2_27
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_28
+    value: 'true'
+  - name: win2016cis_rule_2_2_29
+    value: 'true'
+  - name: win2016cis_rule_2_2_30
+    value: 'true'
+  - name: win2016cis_rule_2_2_31
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_32
+    value: 'true'
+  - name: win2016cis_rule_2_2_33
+    value: 'true'
+  - name: win2016cis_rule_2_2_34
+    value: 'true'
+  - name: win2016cis_rule_2_2_35
+    value: 'true'
+  - name: win2016cis_rule_2_2_36
+    value: 'L2/DC only/no inspec check'
+  - name: win2016cis_rule_2_2_37
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_38
+    value: 'true'
+  - name: win2016cis_rule_2_2_39
+    value: 'true'
+  - name: win2016cis_rule_2_2_40
+    value: 'true'
+  - name: win2016cis_rule_2_2_41
+    value: 'true'
+  - name: win2016cis_rule_2_2_42
+    value: 'true'
+  - name: win2016cis_rule_2_2_43
+    value: 'true'
+  - name: win2016cis_rule_2_2_44
+    value: 'true'
+  - name: win2016cis_rule_2_2_45
+    value: 'true'
+  - name: win2016cis_rule_2_2_46
+    value: 'true'
+  - name: win2016cis_rule_2_2_47
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_2_48
+    value: 'true'
+  - name: win2016cis_rule_2_3_1_1
+    value: 'disables the standard AWS features i.e. retrieving encrypted password'
+  - name: win2016cis_rule_2_3_1_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_1_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_1_4
+    value: 'true'
+  - name: win2016cis_rule_2_3_1_5
+    value: 'not applicable in Azure as local administrator account name is created at vm build time'
+  - name: win2016cis_rule_2_3_1_6
+    value: 'true'
+  - name: win2016cis_rule_2_3_2_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_2_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_4_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_4_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_5_1
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_3_5_2
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_3_5_3
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_3_6_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_6_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_6_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_6_4
+    value: 'true'
+  - name: win2016cis_rule_2_3_6_5
+    value: 'true'
+  - name: win2016cis_rule_2_3_6_6
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_4
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_5
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_6
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_2_3_7_7
+    value: 'true'
+  - name: win2016cis_rule_2_3_7_8
+    value: 'setting reverted in Exclusions.yml'
+  - name: win2016cis_rule_2_3_7_9
+    value: 'true'
+  - name: win2016cis_rule_2_3_8_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_8_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_8_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_9_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_9_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_9_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_9_4
+    value: 'setting reverted in Exclusions.yml'
+  - name: win2016cis_rule_2_3_9_5
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_4
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_2_3_10_5
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_6
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_2_3_10_7
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_8
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_9
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_10
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_11
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_12
+    value: 'true'
+  - name: win2016cis_rule_2_3_10_13
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_4
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_5
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_6
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_7
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_8
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_9
+    value: 'true'
+  - name: win2016cis_rule_2_3_11_10
+    value: 'true'
+  - name: win2016cis_rule_2_3_13_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_15_1
+    value: 'true'
+  - name: win2016cis_rule_2_3_15_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_1
+    value: 'Causing loss of connectivity during packer builds'
+  - name: win2016cis_rule_2_3_17_2
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_3
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_4
+    value: 'win2016ewrc_rule_14 recommends UAC prompt'
+  - name: win2016cis_rule_2_3_17_5
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_6
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_7
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_8
+    value: 'true'
+  - name: win2016cis_rule_2_3_17_9
+    value: 'true'
+  - name: win2016cis_rule_9_1_1
+    value: 'true'
+  - name: win2016cis_rule_9_1_2
+    value: 'true'
+  - name: win2016cis_rule_9_1_3
+    value: 'true'
+  - name: win2016cis_rule_9_1_4
+    value: 'true'
+  - name: win2016cis_rule_9_1_5
+    value: 'true'
+  - name: win2016cis_rule_9_1_6
+    value: 'true'
+  - name: win2016cis_rule_9_1_7
+    value: 'true'
+  - name: win2016cis_rule_9_1_8
+    value: 'true'
+  - name: win2016cis_rule_9_2_1
+    value: 'true'
+  - name: win2016cis_rule_9_2_2
+    value: 'true'
+  - name: win2016cis_rule_9_2_3
+    value: 'true'
+  - name: win2016cis_rule_9_2_4
+    value: 'true'
+  - name: win2016cis_rule_9_2_5
+    value: 'true'
+  - name: win2016cis_rule_9_2_6
+    value: 'true'
+  - name: win2016cis_rule_9_2_7
+    value: 'true'
+  - name: win2016cis_rule_9_2_8
+    value: 'true'
+  - name: win2016cis_rule_9_3_1
+    value: 'true'
+  - name: win2016cis_rule_9_3_2
+    value: 'true'
+  - name: win2016cis_rule_9_3_3
+    value: 'true'
+  - name: win2016cis_rule_9_3_4
+    value: 'true'
+  - name: win2016cis_rule_9_3_5
+    value: 'causing RDP connection issues, commented out'
+  - name: win2016cis_rule_9_3_6
+    value: 'causing RDP connection issues, commented out'
+  - name: win2016cis_rule_9_3_7
+    value: 'true'
+  - name: win2016cis_rule_9_3_8
+    value: 'true'
+  - name: win2016cis_rule_9_3_9
+    value: 'true'
+  - name: win2016cis_rule_9_3_10
+    value: 'true'
+  - name: win2016cis_rule_17_1_1
+    value: 'true'
+  - name: win2016cis_rule_17_2_1
+    value: 'true'
+  - name: win2016cis_rule_17_2_2
+    value: 'true'
+  - name: win2016cis_rule_17_2_3
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_17_2_4
+    value: 'true'
+  - name: win2016cis_rule_17_2_5
+    value: 'true'
+  - name: win2016cis_rule_17_2_6
+    value: 'true'
+  - name: win2016cis_rule_17_3_1
+    value: 'The version of Ansible win_audit_policy_system module does not appear to support PNP Activity subcategory'
+  - name: win2016cis_rule_17_3_2
+    value: 'true'
+  - name: win2016cis_rule_17_4_1
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_17_4_2
+    value: 'DC only/no inspec check'
+  - name: win2016cis_rule_17_5_1
+    value: 'true'
+  - name: win2016cis_rule_17_5_2
+    value: 'true'
+  - name: win2016cis_rule_17_5_3
+    value: 'true'
+  - name: win2016cis_rule_17_5_4
+    value: 'true'
+  - name: win2016cis_rule_17_5_5
+    value: 'true'
+  - name: win2016cis_rule_17_5_6
+    value: 'true'
+  - name: win2016cis_rule_17_6_1
+    value: 'true'
+  - name: win2016cis_rule_17_6_2
+    value: 'true'
+  - name: win2016cis_rule_17_7_1
+    value: 'true'
+  - name: win2016cis_rule_17_7_2
+    value: 'true'
+  - name: win2016cis_rule_17_7_3
+    value: 'true'
+  - name: win2016cis_rule_17_8_1
+    value: 'true'
+  - name: win2016cis_rule_17_9_1
+    value: 'true'
+  - name: win2016cis_rule_17_9_2
+    value: 'true'
+  - name: win2016cis_rule_17_9_3
+    value: 'true'
+  - name: win2016cis_rule_17_9_4
+    value: 'true'
+  - name: win2016cis_rule_17_9_5
+    value: 'true'
+  - name: win2016cis_rule_18_1_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_1_1_2
+    value: 'true'
+  - name: win2016cis_rule_18_1_2_2
+    value: 'true'
+  - name: win2016cis_rule_18_1_3
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_2_1
+    value: 'LAPS-applies to domain joined servers only'
+  - name: win2016cis_rule_18_2_2
+    value: 'LAPS-applies to domain joined servers only'
+  - name: win2016cis_rule_18_2_3
+    value: 'LAPS-applies to domain joined servers only'
+  - name: win2016cis_rule_18_2_4
+    value: 'LAPS-applies to domain joined servers only'
+  - name: win2016cis_rule_18_2_5
+    value: 'LAPS-applies to domain joined servers only'
+  - name: win2016cis_rule_18_2_6
+    value: 'Applies to domain joined servers only'
+  - name: win2016cis_rule_18_3_1
+    value: 'elevation required for remote shell such as bootstrap_win'
+  - name: win2016cis_rule_18_3_2
+    value: 'true'
+  - name: win2016cis_rule_18_3_3
+    value: 'true'
+  - name: win2016cis_rule_18_3_4
+    value: 'true'
+  - name: win2016cis_rule_18_3_5
+    value: 'true'
+  - name: win2016cis_rule_18_3_6
+    value: 'true'
+  - name: win2016cis_rule_18_4_1
+    value: 'ansible enters the key but is missing when inspec checks for it'
+  - name: win2016cis_rule_18_4_2
+    value: 'true'
+  - name: win2016cis_rule_18_4_3
+    value: 'true'
+  - name: win2016cis_rule_18_4_4
+    value: 'true'
+  - name: win2016cis_rule_18_4_5
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_4_6
+    value: 'true'
+  - name: win2016cis_rule_18_4_7
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_4_8
+    value: 'true'
+  - name: win2016cis_rule_18_4_9
+    value: 'true'
+  - name: win2016cis_rule_18_4_10
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_4_11
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_4_12
+    value: 'true'
+  - name: win2016cis_rule_18_5_4_1
+    value: 'true'
+  - name: win2016cis_rule_18_5_4_2
+    value: 'true'
+  - name: win2016cis_rule_18_5_5_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_8_1
+    value: 'true'
+  - name: win2016cis_rule_18_5_9_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_9_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_10_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_11_2
+    value: 'true'
+  - name: win2016cis_rule_18_5_11_3
+    value: 'true'
+  - name: win2016cis_rule_18_5_11_4
+    value: 'true'
+  - name: win2016cis_rule_18_5_14_1
+    value: 'erroring out, commented out'
+  - name: win2016cis_rule_18_5_19_2_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_20_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_20_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_5_21_1
+    value: 'true'
+  - name: win2016cis_rule_18_5_21_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_3_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_4_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_5_1
+    value: 'NG/no inspec check'
+  - name: win2016cis_rule_18_8_5_2
+    value: 'NG/no inspec check'
+  - name: win2016cis_rule_18_8_5_3
+    value: 'NG/no inspec check'
+  - name: win2016cis_rule_18_8_5_4
+    value: 'NG/no inspec check'
+  - name: win2016cis_rule_18_8_5_5
+    value: 'NG/no inspec check'
+  - name: win2016cis_rule_18_8_14_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_21_2
+    value: 'true'
+  - name: win2016cis_rule_18_8_21_3
+    value: 'true'
+  - name: win2016cis_rule_18_8_21_4
+    value: 'true'
+  - name: win2016cis_rule_18_8_21_5
+    value: 'true'
+  - name: win2016cis_rule_18_8_22_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_22_1_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_3
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_4
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_5
+    value: 'true'
+  - name: win2016cis_rule_18_8_22_1_6
+    value: 'true'
+  - name: win2016cis_rule_18_8_22_1_7
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_8
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_9
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_10
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_11
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_12
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_22_1_13
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_25_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_26_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_27_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_27_2
+    value: 'true'
+  - name: win2016cis_rule_18_8_27_3
+    value: 'true'
+  - name: win2016cis_rule_18_8_27_4
+    value: 'true'
+  - name: win2016cis_rule_18_8_27_5
+    value: 'true'
+  - name: win2016cis_rule_18_8_27_6
+    value: 'true'
+  - name: win2016cis_rule_18_8_27_7
+    value: 'true'
+  - name: win2016cis_rule_18_8_28_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_33_6_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_33_6_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_33_6_3
+    value: 'true'
+  - name: win2016cis_rule_18_8_33_6_4
+    value: 'true'
+  - name: win2016cis_rule_18_8_35_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_35_2
+    value: 'true'
+  - name: win2016cis_rule_18_8_36_1
+    value: 'true'
+  - name: win2016cis_rule_18_8_36_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_44_5_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_44_11_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_46_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_49_1_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_8_49_1_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_4_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_6_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_8_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_8_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_8_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_10_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_12_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_13_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_14_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_15_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_15_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_16_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_16_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_16_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_16_4
+    value: 'true'
+  - name: win2016cis_rule_18_9_16_5
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_1_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_2_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_2_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_3_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_3_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_4_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_26_4_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_30_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_30_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_30_4
+    value: 'true'
+  - name: win2016cis_rule_18_9_39_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_43_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_44_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_52_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_2_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_3_2_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_58_3_3_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_58_3_3_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_3_3_3
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_58_3_3_4
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_58_3_9_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_3_9_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_3_9_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_3_10_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_58_3_10_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_58_3_11_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_58_3_11_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_59_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_60_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_60_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_65_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_76_3_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_3_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_76_7_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_9_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_76_10_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_10_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_13_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_13_1_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_13_3_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_76_14
+    value: 'true'
+  - name: win2016cis_rule_18_9_78_3_1
+    value: 'Section 18.9.78 is blank in the CIS document'
+  - name: win2016cis_rule_18_9_79_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_80_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_84_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_84_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_85_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_85_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_85_3
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_86_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_95_1
+    value: 'conflict with HealthRemediation rule 76, commented out'
+  - name: win2016cis_rule_18_9_95_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_97_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_97_1_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_97_1_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_97_2_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_97_2_2
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_97_2_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_97_2_4
+    value: 'true'
+  - name: win2016cis_rule_18_9_98_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_18_9_101_1_1
+    value: 'true'
+  - name: win2016cis_rule_18_9_101_1_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_101_1_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_101_2
+    value: 'true'
+  - name: win2016cis_rule_18_9_101_3
+    value: 'true'
+  - name: win2016cis_rule_18_9_101_4
+    value: 'true'
+  - name: win2016cis_rule_19_1_3_1
+    value: 'true'
+  - name: win2016cis_rule_19_1_3_2
+    value: 'true'
+  - name: win2016cis_rule_19_1_3_3
+    value: 'true'
+  - name: win2016cis_rule_19_1_3_4
+    value: 'true'
+  - name: win2016cis_rule_19_5_1_1
+    value: 'true'
+  - name: win2016cis_rule_19_6_5_1_1
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_19_7_4_1
+    value: 'true'
+  - name: win2016cis_rule_19_7_4_2
+    value: 'true'
+  - name: win2016cis_rule_19_7_7_1
+    value: 'true'
+  - name: win2016cis_rule_19_7_7_2
+    value: 'true'
+  - name: win2016cis_rule_19_7_7_3
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_19_7_7_4
+    value: 'L2/no inspec check'
+  - name: win2016cis_rule_19_7_26_1
+    value: 'true'
+  - name: win2016cis_rule_19_7_40_1
+    value: 'true'
+  - name: win2016cis_rule_19_7_44_2_1
+    value: 'L2/no inspec check'
+  - name: win2016ewrc_rule_5
+    value: 'true'
+  - name: win2016ewrc_rule_14
+    value: 'true'
+  - name: win2016ewrc_rule_37
+    value: 'true'
+  - name: win2016ewrc_rule_38
+    value: 'true'
+  - name: win2016ewrc_rule_39
+    value: 'true'
+  - name: win2016ewrc_rule_64
+    value: 'true'
+  - name: win2016ewrc_rule_66
+    value: 'true'
+  - name: win2016ewrc_rule_70
+    value: 'true'
+  - name: win2016ewrc_rule_76
+    value: 'true'
+  - name: win2016ewrc_rule_77
+    value: 'cause issue when running unsigned powershell scripts, complexity getting signing root on devices'
+  - name: win2016ewrc_rule_80
+    value: 'true'
+  - name: win2016ewrc_rule_104
+    value: 'true'
+  - name: win2016cisiis10_rule_7_8
+    value: 'anisble confirmed but inspec unable to check registry path with forward slash'
+  - name: win2016cisiis10_rule_7_9_1
+    value: 'anisble confirmed but inspec unable to check registry path with forward slash'
+  - name: win2016cisiis10_rule_7_9_2
+    value: 'anisble confirmed but inspec unable to check registry path with forward slash'
+  - name: win2016cisiis10_rule_7_9_3
+    value: 'anisble confirmed but inspec unable to check registry path with forward slash'
+  - name: win2016cisiis10_rule_7_9_4
+    value: 'anisble confirmed but inspec unable to check registry path with forward slash'
+  - name: win2016cisiis10_rule_7_10
+    value: 'anisble confirmed but inspec unable to check registry path with forward slash'
+  - name: win2016ewrc_rule_21
+    value: 'disables the standard AWS features i.e. retreiving encrypted password'
+  - name: win2016ewrc_rule_65
+    value: 'true'
+  - name: win2016ewrc_rule_32
+    value: 'Too restrictive'
+  - name: win2016ewrc_rule_33
+    value: 'Too restrictive'
+  - name: win2016ewrc_rule_24
+    value: 'true'
+  - name: win2016ewrc_rule_1
+    value: 'DC only'
+  - name: win2016ewrc_rule_42
+    value: 'DC only'
+  - name: win2016ewrc_rule_46
+    value: 'true'
+  - name: win2016ewrc_rule_53
+    value: 'true'
+  - name: win2016ewrc_rule_54
+    value: 'true'
+  - name: win2016ewrc_rule_55
+    value: 'true'
+  - name: win2016ewrc_rule_57
+    value: 'true'
+  - name: win2016ewrc_rule_59
+    value: 'true'
+  - name: win2016ewrc_rule_112
+    value: 'true'
+  - name: win2016ewrc_rule_113
+    value: 'true'
+  - name: win2016ewrc_rule_120
+    value: 'Already covered by default NSG/SG security rules'

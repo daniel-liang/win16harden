@@ -1,0 +1,14 @@
+galaxy_info:
+  role_name: CIS_Windows2016_Benchmark_v1.1.0
+  author: Cloud Services Team
+  company: eHealth NSW
+  license: license (BSH, MIT)
+  min_ansible_version: 2.2
+
+  galaxy_tags:
+    - Windows
+    - Windows 2016
+    - Win2016
+    - CIS
+
+dependencies: []
